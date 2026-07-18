@@ -1,0 +1,60 @@
+/* =========================================================
+   style.css … ページの「見た目」を作るファイル
+   CSS(シーエスエス)は「色・大きさ・配置」など、どう見えるかを書く言葉です。
+   書き方の基本:  かざりたい場所 { 何を: どうする; }
+   ========================================================= */
+
+/* body = ページ全体。ここでは背景色や文字色などページ全体の土台を決めます */
+body {
+  margin: 0;                        /* 画面のふちの余白をなくす */
+  height: 100vh;                    /* 高さを画面いっぱい(vh=画面の高さ)にする */
+  display: flex;                    /* 中身を「並べて配置」できるモードにする */
+  justify-content: center;          /* 横方向を中央にそろえる */
+  align-items: center;              /* 縦方向を中央にそろえる */
+  background-color: #d94f4f;        /* 背景色(作業中の赤っぽい色)。#で始まるのは色の番号 */
+  font-family: sans-serif;          /* 文字の種類(ゴシック体) */
+  color: white;                     /* 文字の色を白に */
+}
+
+/* .timer = index.html の class="timer" の部分。タイマー全体のまとまり */
+.timer {
+  text-align: center;               /* 中の文字を中央ぞろえに */
+}
+
+/* .status = 「作業中 / 休憩中」の見出し */
+.status {
+  font-size: 24px;                  /* 文字の大きさ */
+  font-weight: normal;              /* 太さは普通に */
+  letter-spacing: 4px;              /* 文字と文字のすきまを少し広げる */
+}
+
+/* .display = 残り時間の大きな数字(25:00) */
+.display {
+  font-size: 100px;                 /* とても大きく */
+  font-weight: bold;                /* 太字に */
+  margin: 20px 0;                   /* 上下に余白をつける */
+}
+
+/* .buttons = ボタン3つを囲む箱。ボタンを横並びにして中央にそろえる */
+.buttons {
+  display: flex;
+  justify-content: center;
+  gap: 12px;                        /* ボタン同士のすきま */
+}
+
+/* .btn = すべてのボタンに共通のかざり */
+.btn {
+  padding: 12px 24px;               /* ボタンの内側の余白(上下12px 左右24px) */
+  font-size: 16px;
+  border: none;                     /* 枠線をなくす */
+  border-radius: 8px;               /* 角を丸くする */
+  cursor: pointer;                  /* マウスを乗せると指の形になる */
+  background-color: white;
+  color: #d94f4f;
+  font-weight: bold;
+}
+
+/* :hover = マウスを乗せたときだけ適用されるかざり */
+.btn:hover {
+  opacity: 0.8;                     /* 少し透明にして「押せそう」な感じを出す */
+}

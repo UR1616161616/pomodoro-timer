@@ -1,0 +1,54 @@
+<!-- =========================================================
+     index.html … このページの「骨組み(こつぐみ)」を作るファイル
+     HTML(エイチティーエムエル)は「何が」「どこに」あるかを書く言葉です。
+     ========================================================= -->
+
+<!DOCTYPE html>
+<!-- ↑「このファイルはHTMLですよ」というブラウザへの合図(おまじない) -->
+
+<html lang="ja">
+<!-- ↑ ここから下がページ本体。lang="ja" は「日本語のページ」という意味 -->
+
+<head>
+  <!-- head(ヘッド)= 画面には出ないが、ページの設定を書く場所 -->
+
+  <meta charset="UTF-8">
+  <!-- ↑ 文字化けを防ぐ設定。日本語を正しく表示するために必要 -->
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- ↑ スマホでもちゃんと見えるようにする設定 -->
+
+  <title>ポモドーロタイマー</title>
+  <!-- ↑ ブラウザのタブに表示される名前 -->
+
+  <link rel="stylesheet" href="style.css">
+  <!-- ↑「見た目のファイル(style.css)を読み込んでね」という命令 -->
+</head>
+
+<body>
+  <!-- body(ボディ)= 実際に画面に表示される中身を書く場所 -->
+
+  <main class="timer">
+    <!-- main = このページの主役の部分。class="timer" は目印の名前 -->
+
+    <h1 class="status">作業中</h1>
+    <!-- ↑ 今が「作業中」か「休憩中」かを表示する見出し -->
+
+    <div class="display">25:00</div>
+    <!-- ↑ 残り時間を表示する場所。最初は 25分00秒 -->
+
+    <div class="buttons">
+      <!-- ↑ ボタンを3つまとめて置く箱 -->
+
+      <button class="btn btn-start">スタート</button>
+      <button class="btn btn-stop">ストップ</button>
+      <button class="btn btn-reset">リセット</button>
+      <!-- ↑ 3つのボタン。まだ押しても何も起きません(動きは script.js で付けます) -->
+    </div>
+  </main>
+
+  <script src="script.js"></script>
+  <!-- ↑「動きのファイル(script.js)を読み込んでね」という命令。
+         body の一番下に置くのがお約束(理由: 先に画面を作ってから動かすため) -->
+</body>
+</html>
