@@ -31,22 +31,53 @@ function updateDisplay() {
     document.title = m + ":" + s + " ポモドーロタイマー";
 }
 
+function playSound(){
+    const audioContext = new AudioContext();
+    const oscillator = audioContext.createOscillator();
+
+    oscillator.connect(audioContext.destination);
+    oscillator.frequency.value = 700;
+
+    oscillator.start();
+    oscillator.stop(audioContext.currentTime + 1);
+}
+
+function requestNotificationPermission(){
+    if(Notification.permission !== "granted"){
+        Notification.requestPermission();
+    }
+}
+
+function showNotification(message){
+    if(Notification.permission === "granted"){
+        new Notification("ポモドーロタイマー", {body: message});
+    }
+}
+
+
 function switchMode(){
+
+    playSound();
+
     if(isWorking == true){
         isWorking = false;
         timeLeft = 5 * 60;
         statusText.textContent = "休憩中";
         document.body.style.backgroundColor = "#4f9d69";
+        showNotification("お疲れ様です。5分休憩しましょう");
     }else{
         isWorking = true;
         timeLeft = 25 * 60;
         statusText.textContent = "作業中"
         document.body.style.backgroundColor = "#d94f4f";
+        showNotification("休憩が終わりました。25分作業しましょう");
     }
         
 }
 
 startButton.addEventListener("click", function () {
+
+    requestNotificationPermission();
 
     if (timerId !== null) {
         return;
