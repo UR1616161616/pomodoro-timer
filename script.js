@@ -28,6 +28,7 @@ function updateDisplay() {
     const s = String(seconds).padStart(2, "0");
 
     timeDisplay.textContent = m + ":" + s;
+    document.title = m + ":" + s + " ポモドーロタイマー";
 }
 
 function switchMode(){
